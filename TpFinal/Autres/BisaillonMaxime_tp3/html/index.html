@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="language" content="fr">
+    <title>Tp3</title>
+
+	<LINK REL= "stylesheet"HREF= "../css/monFichierDeStyle.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	body {
+		background-color: lightgray;
+	}
+</style>
+<script>
+//jquery-------------------------------------------------------------------------------
+    $(document).ready(function () {
+    var catalog_data;
+
+    // Chargement des données xml
+      $.get('cd_catalog.xml', function (data) {
+        catalog_data = data;
+        var catalog = $('#special');
+        $('TITLE', catalog_data).each(function () { // Boucle pour emplir le drop-down
+            $('<option />', {
+                text: $(this).text(),
+                value: $(this).attr('index')
+            }).appendTo(catalog);
+          });     
+        }, 'xml');
+       });
+//javascript-------------------------------------------------------------------------------
+	// Affiche la sélection   
+	function afficheChoix() {
+    var x = document.getElementById("special").selectedIndex;
+    document.getElementById("rep").innerHTML = 
+    document.getElementsByTagName("option")[x].value;
+	};
+	
+	function afficherPrix()	{
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				myFunction(this);
+			}
+		};
+		xhttp.open("GET", "cd_catalog.xml", true);
+		xhttp.send();
+		};
+		
+		
+		
+	function myFunction(xml) {
+		var xmlDoc = xml.responseXML;
+		var x = xmlDoc.getElementsByTagName("CD");
+		var i = document.getElementById("special").selectedIndex;
+		var prix = Number(x[i-"1"].getElementsByTagName("PRICE")[0].childNodes[0].nodeValue);
+		
+		document.getElementById("repP").innerHTML = prix;
+	}
+	
+	function calculTaxe()	{
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				calculTaxe2(this);
+			}
+		};
+		xhttp.open("GET", "cd_catalog.xml", true);
+		xhttp.send();
+		};
+	
+	
+	
+	function calculTaxe2(xml) {
+		var xmlDoc = xml.responseXML;
+		var x = xmlDoc.getElementsByTagName("CD");
+		var i = document.getElementById("special").selectedIndex;
+		var prix = Number(x[i-"1"].getElementsByTagName("PRICE")[0].childNodes[0].nodeValue);
+		
+		var nombreAchat = document.getElementById("quantite").value;
+		var totalSansTaxe = +prix * +nombreAchat;
+		var tps = totalSansTaxe * 0.05;
+		var tvq = totalSansTaxe * 0.09975;
+		var coutTaxe = tps + tvq;
+		var coutTaxe = coutTaxe.toFixed(2);
+		if(document.getElementById('idTaxes').innerHTML != "") {
+		document.getElementById("afficheTaxe").innerHTML = coutTaxe;
+		}
+	}
+	
+	
+	function calculPrixFinal()	{
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				calculPrixFinal2(this);
+			}
+		};
+		xhttp.open("GET", "cd_catalog.xml", true);
+		xhttp.send();
+		};
+	
+	
+	
+	function calculPrixFinal2(xml) {
+		var xmlDoc = xml.responseXML;
+		var x = xmlDoc.getElementsByTagName("CD");
+		var i = document.getElementById("special").selectedIndex;
+		var prix = Number(x[i-"1"].getElementsByTagName("PRICE")[0].childNodes[0].nodeValue);
+		
+		if(document.getElementById('idTaxes').innerHTML == "") {
+			var nombreAchat = document.getElementById("quantite").value;
+			var totalSansTaxe = +prix * +nombreAchat;
+			var coutTotal = totalSansTaxe.toFixed(2);
+			document.getElementById("affichePrixFinal").innerHTML = coutTotal;
+		} else { 
+			var nombreAchat = document.getElementById("quantite").value;
+			var totalSansTaxe = +prix * +nombreAchat;
+			var tps = totalSansTaxe * 0.05;
+			var tvq = totalSansTaxe * 0.09975;
+			var coutTotal = tps + tvq + totalSansTaxe;
+			var coutTotal = coutTotal.toFixed(2);
+			document.getElementById("affichePrixFinal").innerHTML = coutTotal;
+			}
+	}
+	
+	function hideTaxes() {
+		document.getElementById('idTaxes').innerHTML = "";
+		document.getElementById('afficheTaxe').innerHTML = "";
+	}
+	
+	
+	function calculEscompte1()	{
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				calculEscompte2(this);
+			}
+		};
+		xhttp.open("GET", "cd_catalog.xml", true);
+		xhttp.send();
+		};
+	
+	
+	
+	function calculEscompte2(xml) {
+		var xmlDoc = xml.responseXML;
+		var x = xmlDoc.getElementsByTagName("CD");
+		var i = document.getElementById("special").selectedIndex;
+		var prix = Number(x[i-"1"].getElementsByTagName("PRICE")[0].childNodes[0].nodeValue);
+		
+		var nombreAchat = document.getElementById("quantite").value;
+		var Escompte = 0.1;
+		var EscompteCalculer = prix * Escompte;
+		var EscompteCalculer = EscompteCalculer.toFixed(2);
+		document.getElementById("Escompte2").innerHTML = EscompteCalculer;
+	}
+
+	
+	function hideEscompte() {
+		var x = document.getElementById('divEscompte');
+		if (x.style.display === 'block') {
+			x.style.display = 'none';
+		} else {
+			x.style.display = 'block';
+		}
+	}
+	function myfunctionAfficheFinal() {
+		var ligne = document.createElement("tr");
+	// pour chaque info : produit ----------------------------------------------------------
+		var unTD = document.createElement("td");
+		var info = document.getElementsByTagName("TITLE").innerHTML = document.getElementById("special").value;
+		var textmodel = document.createTextNode(info);
+		unTD.appendChild(textmodel);
+		ligne.appendChild(unTD);
+	// pour chaque info : prix ----------------------------------------------------------
+		var unTD2 = document.createElement("td");
+		var info2 = document.getElementsByTagName("PRIX").innerHTML = document.getElementById("repP").innerHTML;
+		var textnode2 = document.createTextNode(info2);
+		unTD2.appendChild(textnode2);
+		ligne.appendChild(unTD2);
+	// pour chaque info : quantité ----------------------------------------------------------
+		var unTD2 = document.createElement("td");
+		var info2 = document.getElementsByTagName("quantite").innerHTML = document.getElementById("quantite").value;
+		var textnode2 = document.createTextNode(info2);
+		unTD2.appendChild(textnode2);
+		ligne.appendChild(unTD2);
+	// pour chaque info : taxes ----------------------------------------------------------
+		var unTD2 = document.createElement("td");
+		var info2 = document.getElementsByTagName("taxes").innerHTML = document.getElementById("afficheTaxe").innerHTML;
+		if(document.getElementById('idTaxes').innerHTML == "") {
+			var textnode2 = document.createTextNode("0");
+		} else {
+			var textnode2 = document.createTextNode(info2);
+		}
+		unTD2.appendChild(textnode2);
+		ligne.appendChild(unTD2);
+	// pour chaque info : total ----------------------------------------------------------
+		var unTD2 = document.createElement("td");
+		var info2 = document.getElementsByTagName("coutTotal").innerHTML = document.getElementById("affichePrixFinal").innerHTML;
+		var textnode2 = document.createTextNode(info2);
+		unTD2.appendChild(textnode2);
+		ligne.appendChild(unTD2);
+	//----------------------------------------------------------
+	document.getElementById("maTable").appendChild(ligne);
+	}
+	
+	
+	status = 1;
+	function changeStyle() {
+
+	if(status==1) {
+		document.getElementById("show").className = "btn btn-danger";
+		document.getElementById("BoutonPayer").className = "btn btn-danger";
+		document.getElementById("BoutonEscompte").className = "btn btn-danger";
+		document.getElementById("BoutonBootstrap").className = "btn btn-danger";
+		document.getElementById("BoutonTaxe").className = "btn btn-danger";
+		status = 2;
+	}
+	else if(status==2) {
+		document.getElementById("show").className = "btn btn-info";
+		document.getElementById("BoutonPayer").className = "btn btn-info";
+		document.getElementById("BoutonEscompte").className = "btn btn-info";
+		document.getElementById("BoutonBootstrap").className = "btn btn-info";
+		document.getElementById("BoutonTaxe").className = "btn btn-info";
+		status = 3;
+	}
+	else if(status==3) {
+		document.getElementById("show").className = "BoutonPanier";
+		document.getElementById("BoutonPayer").className = "BoutonMontant";
+		document.getElementById("BoutonEscompte").className = "BoutonEscompte";
+		document.getElementById("BoutonBootstrap").className = "BoutonBootstrap";
+		document.getElementById("BoutonTaxe").className = "BoutonNonTaxable";
+		status = 1;
+	}
+	}
+</script> 
+</head>
+<body>
+	<div>
+		<h1>Commande de CD</h1>
+		<table>
+			<tr>
+				<td>Produit</td>
+				<td><select name="Count_1" id="special" onchange = "afficherPrix()"><option value="">Selectionne un Titre</option></select></div></td>
+				<td class ="tableauPrincipal"><div><button id="BoutonTaxe" onclick ="hideTaxes()" class ="BoutonNonTaxable">Non-taxable</button></div></td>
+			</tr>
+			<tr>
+				<td class ="tableauPrincipal">Prix</td>
+				<td class ="tableauPrincipal"><div id="repP"><p></p></div></td>
+				<td class ="tableauPrincipal"><div><button id="BoutonBootstrap" class ="BoutonBootstrap" onclick="changeStyle()">Ajouter un style Bootstrap</button></div></td>
+			</tr>
+			<tr>
+				<td class ="tableauPrincipal">Quantité</td>
+				<td class ="tableauPrincipal"><input type="text" id="quantite" value="1"></td>
+				<td class ="tableauPrincipal"><div><button id="BoutonEscompte" class ="BoutonEscompte" onclick="document.getElementById('Escompte1').style.display='block';document.getElementById('Escompte2').style.display='block';calculEscompte1();calculEscompte2()">Escompte</button></div></td>
+			</tr>
+			<tr>
+				<td id="Escompte1" style="display:none" class ="tableauPrincipal">Escompte de 10%</td>
+				<td class ="tableauPrincipal"><div id="Escompte2"><p></p></div></td>
+			</tr>
+			<tr>
+				<div id ="divTaxes">
+				<td class ="tableauPrincipal"><div id ="idTaxes"><p>Taxes</p></div></td>
+				<td class ="tableauPrincipal"><div id="afficheTaxe"><p><p></div></td>
+				</div>
+			</tr>
+			<tr>
+				<td class ="tableauPrincipal">Total</td>
+				<td class ="tableauPrincipal"><div id="affichePrixFinal"><p></p></div></td>
+			</tr>
+		</table>
+		<br>
+		<div ><button id="BoutonPayer" onclick="calculTaxe();calculPrixFinal()" class = "BoutonMontant">Montant à payer</button></div>
+		<br>
+		<div><button onclick="myfunctionAfficheFinal()" id="show" class = "BoutonPanier">Ajouter au panier</button></div>
+		<table>
+			<td class ="tableauPanier">Panier</td>
+		<tr>
+			<td class ="tableauPanier">Produit</td>
+			<td class ="tableauPanier">Prix</td>
+			<td class ="tableauPanier">Quantité</td>
+			<td class ="tableauPanier">Taxes</td>
+			<td class ="tableauPanier">Total</td>
+		</tr>
+		</table>
+	</div>
+	<div class="AjouterPanier">
+	<table id="maTable" class ="tableauPanier">
+	</table>
+	</div>
+	
+	
+	
+	
+	
+	
+
+</body>

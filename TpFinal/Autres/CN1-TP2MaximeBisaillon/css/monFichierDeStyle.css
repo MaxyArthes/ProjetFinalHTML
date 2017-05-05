@@ -1,0 +1,304 @@
+
+.centre {
+	text-align: center;
+	}
+
+.floatGauche  {
+    float: left;
+}
+
+.floatDroit  {
+    float: right;
+}
+
+.centrePage {
+    left: 500px;
+    line-height: 200px;
+    margin: auto;
+    margin-top: -100px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.marginGauche5x {
+    margin-left: 5px;
+}
+
+.marginGauche42x {
+    margin-left: 42px;
+}
+
+.marginGauche570x {
+	position: relative;
+	bottom: -50px;
+	clear: both;
+    margin-left: 570px;
+}
+
+.marginParfum {
+	position: relative;
+	bottom: -43px;
+	clear: both;
+    margin-left: 300px;
+}
+
+.marginParfum2 {
+	position: relative;
+	bottom: 0px;
+	clear: both;
+    margin-left: 420px;
+}
+
+.marginSoinDeLaPeau {
+	position: relative;
+	bottom: 40px;
+	clear: both;
+    margin-left: 570px;
+}
+
+.marginPrescription {
+	position: relative;
+	bottom: -30px;
+	clear: both;
+    margin-left: 850px;
+}
+
+.marginConseil {
+	position: relative;
+	bottom: -30px;
+	clear: both;
+    margin-left: 0px;
+}
+
+.marginConseilTitre {
+	position: relative;
+	bottom: -50px;
+	clear: both;
+    margin-left: 534px;
+}
+
+.textGaucheCentre {
+	text-align: Left,Center;
+}
+
+ul.basic {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #3DE8E8;
+	border: 3px solid red;
+}
+
+ul.Vert {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #7CFC00;
+	border: 3px solid red;
+}
+
+ul.a {
+	position: relative;
+    list-style-type: circle;
+	margin-left: 800px;
+	bottom: -195px;
+	color: #7CFC00;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #E14545;
+    color: yellow;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+li.redBorder {
+    text-align: center;
+    border-bottom: 3px solid red;
+}
+
+li.acceuil {
+	padding:0px;
+	margin: 0px;
+}
+
+.arrondie3 {
+	position: relative;
+	bottom: -80px;
+    border: 3px solid red;
+    border-radius: 12px;
+	text-align: center;
+	background-color: #3DE8E8;
+}
+
+p.cadreRouge {
+    border-style: solid;
+    border-color: red;
+	background-color: #3DE8E8;
+	margin: 0 auto;
+	display: table;
+}
+
+p.cadreRougeVert {
+    border-style: solid;
+    border-color: red;
+	background-color: #7CFC00;
+	margin: 0 auto;
+	display: table;
+}
+
+#locator1 { position: absolute; visibility: visible; left: 500px; top: 358px; z-index: 200; } 
+#locator2 { position: absolute; visibility: visible; left: 900px; top: 220px; z-index: 200; }
+#locator3 { position: absolute; visibility: visible; left: 900px; top: 800px; z-index: 200; }
+#locator4 { position: absolute; visibility: visible; left: 980px; top: 260px; z-index: 200; }
+#locator5 { position: absolute; visibility: visible; left: 940px; top: 360px; z-index: 200; }
+#locator6 { position: absolute; visibility: visible; left: 1162px; top: 360px; z-index: 200; }
+#locator7 { position: absolute; visibility: visible; left: 700px; top: 300px; z-index: 200; }
+#locator8 { position: absolute; visibility: visible; left: 700px; top: 300px; z-index: 200; }
+#locator9 { position: absolute; visibility: visible; left: 800px; top: 650px; z-index: 200; }
+
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+	margin-left: 500px;
+    padding: 0 6px;
+    float: left;
+    width: 30%;
+	height: 20%;
+}
+
+
+
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+    }
+}
+
+div.hoverParfum {
+	border: 3px solid red;
+    background-color: yellow;
+    padding: 10px;
+    display: none;
+}
+    
+span:hover + div {
+    display: table;
+}
+
+h3.h3vert {
+	padding:0px;
+	margin: 0px;
+	color: #7CFC00;
+	}
+	
+	
+div.floating-box {
+    float: left;
+    width: 160px;
+    height: 140px;
+    margin: 10px; 
+}
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div.form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+div.formInfirmiere {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+	width: 500px;
+    height: 500px;
+	color: #FF1493;
+}
+
+div.formConsultation {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+	width: 500px;
+    height: 500px;
+	color: green;
+}
+
+div.formContacter {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+	width: 500px;
+    height: 500px;
+	color: Blue;
+}
+
+p.recu {
+    font-size: 50px;
+}
+
+p.Nancy {
+    font-size: 25px;
+    text-decoration: underline;
+	color: #FF1493;
+}
+
+p.prise {
+    font-size: 25px;
+	color: white;
+}
+
+p.vaccins {
+    font-size: 25px;
+	color: white;
+}
+
+div.try {
+	background-color: white;
+}

@@ -1,0 +1,62 @@
+div.Principal {
+	background-color: lightgray;
+}
+
+div.AjouterPanier {
+	background-color: yellow;
+}
+
+td.tableauPrincipal {
+	width: 150px;
+}
+
+td {
+	width: 150px;
+}
+
+button.BoutonMontant {
+	width: 130px;
+	height: 40px;
+	background-color: lightblue;
+	border-radius: 10px;
+	}
+	
+button.BoutonPanier {
+	width: 130px;
+	height: 40px;
+	background-color: lightgreen;
+	border-radius: 10px;
+	}
+	
+button.BoutonNonTaxable {
+	width: 130px;
+	height: 40px;
+	background-color: brown;
+	border-radius: 10px;
+	}
+	
+button.BoutonBootstrap {
+	width: 130px;
+	height: 40px;
+	background-color: blue;
+	border-radius: 10px;
+	}
+	
+button.BoutonEscompte {
+	width: 130px;
+	height: 40px;
+	background-color: green;
+	border-radius: 10px;
+	}
+	
+.btn-info {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
