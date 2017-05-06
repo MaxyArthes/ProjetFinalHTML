@@ -1,0 +1,23 @@
+.img-responsive {
+    width:100%;
+    height: 120px;
+}
+
+.img-responsive2 {
+    width:100%;
+    height: 500px;
+}
+
+.img-responsive3 {
+    width:60%;
+    height: 600px;
+}
+
+.marginGauche30x {
+    margin-left: 30px;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 0;
+

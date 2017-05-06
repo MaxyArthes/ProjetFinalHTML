@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <meta charset ="UTF-8">
+    <meta name ="language" content="fr">
+	<title>Tp4</title>
+	<LINK REL ="stylesheet"HREF= "../css/bootstrap.css">
+	<LINK REL ="stylesheet"HREF= "../css/monFichierDeStyle.css">
+	<script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+	body {
+		background-color: lightgray;
+	}
+</style>
+<script>
+//jquery-------------------------------------------------------------------------------
+    $(document).ready(function () {
+    var catalog_data;
+
+    // Chargement des données xml
+      $.get('entreprise_catalog.xml', function (data) {
+        catalog_data = data;
+        var catalog = $('#ChangementPhoto');
+        $('TITLE', catalog_data).each(function () { // Boucle pour emplir le drop-down
+            $('<option />', {
+                text: $(this).text(),
+                value: $(this).attr('index')
+            }).appendTo(catalog);
+          });     
+        }, 'xml');
+       });
+//javascript-------------------------------------------------------------------------------
+	// Affiche la sélection   
+	function afficheChoix() {
+    var x = document.getElementById("ChangementPhoto").selectedIndex;
+    document.getElementById("rep").innerHTML = 
+    document.getElementsByTagName("option")[x].value;
+	};
+	
+	function afficherPrix()	{
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				myFunction(this);
+			}
+		};
+		xhttp.open("GET", "entreprise_catalog.xml", true);
+		xhttp.send();
+		};
+	
+	sd = 1;	
+    function changeImage() {
+        if(document.getElementById("ChangementPhoto").selectedIndex==1) {
+            document.getElementById("ok").src = "../images/LogoBanniere.png";
+        }
+	}
+</script>
+<body>
+	<div><img src ="../images/LogoBanniere.png" alt ="Banners"  class ="img-responsive"></div>
+	
+	<nav class ="navbar navbar-default">
+	  <div class ="container-fluid">
+		<div class ="navbar-header">
+		  <a class ="navbar-brand" href ="#">Nadeau.com</a>
+		</div>
+		<ul class="nav navbar-nav">
+		  <li class="active"><a href ="./index.html">Home</a></li>
+		  <li><a href ="./page1.html">Historique</a></li>
+		  <li><a href ="#">Page 2</a></li>
+		  <li><a href ="#">Page 3</a></li>
+		</ul>
+	  </div>
+	</nav>
+	
+	<div><img id ="ok" src ="../images/magasin.png" alt ="Banners"  class = "img-responsive3"></div>
+	<select name="Count_1" id="ChangementPhoto" onclick= "changeImage()"><option value="">Selectionne un magasin</option></select></div>
+	
+	
+	<div class ="copyright">
+		<h2>Ce site est un devoir collégial et n'a aucun lien avec Les Magasins Nadeau.</h2>
+		<h2>© 2017, Maxime Bisaillon & Joël Lemaire.</h2>
+	</div>
+</body>
