@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <meta charset ="UTF-8">
+    <meta name ="language" content="fr">
+    <title>Tp4</title>
+	<LINK REL ="stylesheet"HREF= "../css/bootstrap.css">
+	<LINK REL ="stylesheet"HREF= "../css/monFichierDeStyle.css">
+	<script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+	body {
+		background-color: lightgray;
+	}
+</style>
+<script>
+	function mOver(obj) {
+		obj.innerHTML = "© 2017, Joël Lemaire & Maxime Bisaillon."
+	}
+
+	function mOut(obj) {
+		obj.innerHTML = "© 2017, Maxime Bisaillon & Joël Lemaire."
+	}
+</script> 
+</head>
+<body>
+	<div><img src ="../images/LogoBanniere.png" alt ="Banners"  class ="img-responsive"></div>
+
+	<nav class ="navbar navbar-default">
+	  <div class ="container-fluid">
+		<div class ="navbar-header">
+		  <a class ="navbar-brand" href ="https://www.facebook.com/lesmagasinsnadeau/?fref=ts" target="_blank">Nadeau.com</a>
+		</div>
+		<ul class="nav navbar-nav">
+		  <li class="active"><a href ="./index.html">Home</a></li>
+		  <li><a href ="./Succursale.html">Succursale</a></li>
+		  <li><a href ="./Promotion.html">Promotion</a></li>
+		  <li><a href ="./page3.html">Images</a></li>
+		</ul>
+	  </div>
+	</nav>
+	
+	<div class="row">
+		<div class="col-sm-4 col-md-4">
+			<div class="row">
+				<div class="col-sm-12 col-md-6" ><img src ="../images/icon1.jpg" alt ="icon"  class = "img-responsive4"></div>
+				<div class="col-sm-12 col-md-6" ><img src ="../images/icon2.jpg" alt ="icon"  class = "img-responsive4"></div>
+			</div>
+		</div>
+		<div class="col-sm-4 col-md-4">
+			<div class="row">
+				<div class="col-sm-12 col-md-6" ><img src ="../images/icon3.jpg" alt ="icon"  class = "img-responsive4"></div>
+				<div class="col-sm-12 col-md-6" ><img src ="../images/icon4.jpg" alt ="icon"  class = "img-responsive4"></div>
+			</div>
+		</div>
+		<div class="col-sm-4 col-md-4">
+			<div class="row">
+				<div class="col-sm-12 col-md-6" ><img src ="../images/icon5.jpg" alt ="icon"  class = "img-responsive4"></div>
+				<div class="col-sm-12 col-md-6" ><img src ="../images/icon6.jpg" alt ="icon"  class = "img-responsive4"></div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="row">
+		<div class="col-sm-4 col-md-4">
+			<div class="row">
+				<div class="col-sm-12 col-md-6" ><img src ="../images/icon7.jpg" alt ="icon"  class = "img-responsive4"></div>
+			</div>
+		</div>
+		<div class="col-sm-4 col-md-4">
+			<div class="row">
+				<div class="col-sm-12 col-md-6" ><img src ="../images/icon8.jpg" alt ="icon"  class = "img-responsive4"></div>
+			</div>
+		</div>
+		<div class="col-sm-4 col-md-4">
+			<div class="row">
+				<div class="col-sm-12 col-md-6" ><img src ="../images/icon9.jpg" alt ="icon"  class = "img-responsive4"></div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<footer class="footer">
+		<div class ="hoverYellow"><p>Ce site est un devoir collégial et n'a aucun lien avec Les Magasins Nadeau.</p></div>
+		<div id ="changement" onmouseover="mOver(this)" onmouseout="mOut(this)"><p>© 2017, Maxime Bisaillon & Joël Lemaire.</p></div>
+	</footer>
+
+</body>

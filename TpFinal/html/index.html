@@ -12,6 +12,13 @@
 	}
 </style>
 <script>
+	function mOver(obj) {
+		obj.innerHTML = "© 2017, Joël Lemaire & Maxime Bisaillon."
+	}
+
+	function mOut(obj) {
+		obj.innerHTML = "© 2017, Maxime Bisaillon & Joël Lemaire."
+	}
 </script> 
 </head>
 <body>
@@ -26,7 +33,7 @@
 		  <li class="active"><a href ="./index.html">Home</a></li>
 		  <li><a href ="./Succursale.html">Succursale</a></li>
 		  <li><a href ="./Promotion.html">Promotion</a></li>
-		  <li><a href ="#">Page 3</a></li>
+		  <li><a href ="./page3.html">Images</a></li>
 		</ul>
 	  </div>
 	</nav>
@@ -43,8 +50,8 @@
 	</table>
 
 	<footer class="footer">
-		<h2>Ce site est un devoir collégial et n'a aucun lien avec Les Magasins Nadeau.</h2>
-		<h2>© 2017, Maxime Bisaillon & Joël Lemaire.</h2>
+		<div class ="hoverYellow"><p>Ce site est un devoir collégial et n'a aucun lien avec Les Magasins Nadeau.</p></div>
+		<div id ="changement" onmouseover="mOver(this)" onmouseout="mOut(this)"><p>© 2017, Maxime Bisaillon & Joël Lemaire.</p></div>
 	</footer>
 
 </body>

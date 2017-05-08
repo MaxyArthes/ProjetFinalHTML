@@ -13,6 +13,11 @@
     height: 600px;
 }
 
+.img-responsive4 {
+    width:60%;
+    height: 100px;
+}
+
 .marginGauche30x {
     margin-left: 30px;
 }
@@ -20,4 +25,8 @@
 .copyright {
     position: absolute;
     bottom: 0;
+}
 
+.hoverYellow :hover{
+	background-color: yellow;
+}
