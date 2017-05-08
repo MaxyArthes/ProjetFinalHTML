@@ -30,3 +30,7 @@
 .hoverYellow :hover{
 	background-color: yellow;
 }
+
+.hoverBlue :hover{
+	color: blue;
+}
